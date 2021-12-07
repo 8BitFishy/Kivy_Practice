@@ -1,0 +1,94 @@
+PageLayoutExample:
+
+<PageLayoutExample@PageLayout>:
+    MainWidget:
+    BoxLayoutExample:
+    AnchorLayoutExample:
+    GridLayoutExample:
+
+<ScrollViewExample@ScrollView>:
+    StackLayoutExample:
+        size_hint: 1, None
+        height: self.minimum_height
+ 
+
+<GridLayoutExample@GridLayout>:
+    rows: 2
+    #cols:1
+    Button:
+        text:"Hello A"
+        size_hint: None, 1
+        width: "60dp"
+    BoxLayoutExample
+    Button:
+        text:"Hello C"
+    Button:
+        text:"Hello D"
+    Button:
+        text:"Hello E"
+        size_hint: None, 1
+        width: "60dp"
+    Button:
+        text:"Hello F"
+    Button:
+        text:"Hello G"
+    Button:
+        text:"Hello H"
+    AnchorLayout
+
+
+
+<AnchorLayout>:
+    anchor_x: "left"
+    anchor_y: "top"
+
+    BoxLayout:
+        orientation:"vertical"
+
+    Button:
+        text:"B"
+        size_hint: 0.2, 0.2
+        size: "50dp", "50dp"
+      
+    Button:
+        text:"C"
+        size_hint: 0.2, 0.2
+        size: "50dp", "50dp"
+
+<BoxLayoutExample>:
+    orientation:"horizontal"
+
+    Button:
+        text:"A"
+        size_hint: 1, 1
+        size: "50dp", "50dp"
+
+    BoxLayout:
+        orientation:"vertical"
+
+    Button:
+        text:"B"
+        size_hint: 1, 1
+        size: "50dp", "50dp"
+      
+    Button:
+        text:"C"
+        size_hint: 1, 1
+        size: "50dp", "50dp"
+
+
+
+
+
+<MainWidget>:
+    Button:
+        text: "Hello"
+        size: "100dp", "50dp"
+        pos: "100dp", "200dp"
+
+    Label:
+        text: "Hello2"
+        size: "100dp", "50dp"
+        pos: "100dp", "150dp"
+
+  
