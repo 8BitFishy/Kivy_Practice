@@ -1,17 +1,107 @@
-PageLayoutExample:
+ImagesExample:
 
+
+
+
+###########################################
+<ImagesExample@GridLayout>:
+    cols: 3
+    Image:
+        source: "images/cake.jpg"
+
+    Image:
+        source: "images/cake.jpg"
+        allow_stretch:True
+    Image:
+        source: "images/cake.jpg"
+        allow_stretch:True
+        keep_ratio: False
+
+
+
+
+###########################################
+
+<WidgetsExample>:
+    cols: 3
+
+    ToggleButton:
+        text:"Off"
+        on_state: root.on_toggle_button(self)
+        size_hint:None, 1
+        width:"100dp"
+
+    Button:
+        text: "Click Here"
+        on_press: root.on_button_click()
+        disabled: not root.count_enabled
+
+
+    Label:
+        text: root.counter_string
+        font_name : "fonts/Lcd.ttf"
+        font_size: "80dp"
+        color: 1, .5, 1, 1
+
+    Switch:
+        id: slider_switch
+        size_hint:None, 1
+        width:"100dp"
+        active: True
+
+
+    Slider:
+        id: my_slider
+        min: 0
+        max: 100
+        disabled: not slider_switch.active
+
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: str(int(my_slider.value))
+            font_name : "fonts/Lcd.ttf"
+            font_size: "80dp"
+            color: 1, .5, 1, 1
+
+        ProgressBar:
+            max: 100
+            value: my_slider.value
+
+    TextInput:
+        id: text_input
+        size_hint:None, 1
+        width:"100dp"
+        text:"Text Here"
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
+
+    Label:
+        text: "Your name is: "+ root.text_input_str
+
+
+
+
+
+##############################
 <PageLayoutExample@PageLayout>:
     MainWidget:
     BoxLayoutExample:
     AnchorLayoutExample:
     GridLayoutExample:
 
+
+
+##############################
 <ScrollViewExample@ScrollView>:
     StackLayoutExample:
         size_hint: 1, None
         height: self.minimum_height
- 
 
+
+
+
+##############################
 <GridLayoutExample@GridLayout>:
     rows: 2
     #cols:1
@@ -37,7 +127,7 @@ PageLayoutExample:
     AnchorLayout
 
 
-
+##############################
 <AnchorLayout>:
     anchor_x: "left"
     anchor_y: "top"
@@ -55,6 +145,9 @@ PageLayoutExample:
         size_hint: 0.2, 0.2
         size: "50dp", "50dp"
 
+
+
+##############################
 <BoxLayoutExample>:
     orientation:"horizontal"
 
@@ -79,7 +172,7 @@ PageLayoutExample:
 
 
 
-
+##############################
 <MainWidget>:
     Button:
         text: "Hello"
